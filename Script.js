@@ -2476,20 +2476,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (factEl && fact) factEl.textContent = fact;
   }
  
-  let key = 0;
+
 
   async function getKey() {
     const res = await fetch("https://your-worker.workers.dev?token=mySuperSecret123");
     const data = await res.json();
     console.log("API Key:", data.apiKey);
-    key = data.apiKey
+  let key = data.apiKey
   }
   getKey();
   
 
   async function fetchOpenRouterEstimate(query) {
-    const apiKey =
-      key ||
+    const apiKey =  key ||
       localStorage.getItem("OPENROUTER_API_KEY");
     if (!apiKey) return null;
   
