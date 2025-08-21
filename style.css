@@ -1,9 +1,5 @@
 
 
-/* Navigation Bar Styles */
-body.no-scroll {
-  overflow: hidden;
-}
 
 body{
   overflow-x: hidden;
@@ -1207,15 +1203,6 @@ h1{
   border-color: rgba(255,255,255,0.28);
 }
 
-/* Disable transitions/animations for details section */
-/* .details-card.reveal{ opacity: 1; transform: none; transition: none; }
-.details-card, .details-card *{ transition: none !important; }
-.details-card:hover{
-  transform: none;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255,255,255,0.2);
-} */
 
 .details-card-title{
   font-size: 0.95rem;

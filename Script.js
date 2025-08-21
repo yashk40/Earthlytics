@@ -8,29 +8,28 @@ const renderer = new THREE.WebGLRenderer({
   alpha: true,
 });
 
-// Use transparent black to avoid any white composite before first paint
+
 renderer.setClearColor(0x000000, 0);
 renderer.setSize(500,500);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 const container = document.getElementById('globe-container');
-// Defer attaching the canvas until the first real render to prevent any blank-frame flash
+
 let canvasAppended = false;
 renderer.domElement.style.display = 'none';
 renderer.domElement.style.opacity = '0';
 renderer.domElement.style.transition = 'opacity 250ms ease';
 
-// Function to handle resize
+
 function onWindowResize() {
-  // Use safe fallbacks if container has no height yet (before canvas append)
+ 
   const cw = container.clientWidth || container.offsetWidth || 500;
   const ch = container.clientHeight || container.offsetHeight || cw || 500;
   
-  // Calculate size while maintaining square aspect
+ 
   let size = Math.min(cw, ch, 500);
   if (!size || size <= 0) size = Math.min(cw || 500, 500);
-  
-  // For mobile devices, use a smaller size
+ 
   const isMobile = window.innerWidth <= 768;
   const maxSize = isMobile ? 300 : 500;
   const finalSize = Math.min(size, maxSize);
@@ -2476,10 +2475,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (noteEl && note) noteEl.textContent = note;
     if (factEl && fact) factEl.textContent = fact;
   }
+ 
+  let key = 0;
+
+  async function getKey() {
+    const res = await fetch("https://your-worker.workers.dev?token=mySuperSecret123");
+    const data = await res.json();
+    console.log("API Key:", data.apiKey);
+    key = data.apiKey
+  }
+  getKey();
+  
 
   async function fetchOpenRouterEstimate(query) {
     const apiKey =
-      "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" ||
+      key ||
       localStorage.getItem("OPENROUTER_API_KEY");
     if (!apiKey) return null;
   
@@ -2574,7 +2584,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchOpenRouterEstimateFromImage(imageUrl) {
     const apiKey =
-      // "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" ||
+      "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" ||
       localStorage.getItem("OPENROUTER_API_KEY");
     if (!apiKey) return null;
   
