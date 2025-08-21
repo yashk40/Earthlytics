@@ -395,7 +395,7 @@ async function Data() {
     const response = await fetch("https://carbon-emission.ykumawat006-372.workers.dev/");
     const data = await response.json();
 
-    console.log("CO2 Data:", data);
+    
 
     const Carbon = document.getElementById("CO2-upd");
     if (Carbon) {
@@ -2480,7 +2480,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   async function fetchOpenRouterEstimate(query) {
-    const apiKey =  key ||
+    const apiKey =  "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"||
       localStorage.getItem("OPENROUTER_API_KEY");
     if (!apiKey) return null;
   
@@ -2513,7 +2513,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
       const data = await res.json();
       const content = data?.choices?.[0]?.message?.content || "";
-      console.log('API Response:', data);
+     
       
       if (typeof content !== "string") return null;
   
@@ -2619,8 +2619,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
       const data = await res.json();
       const content = data?.choices?.[0]?.message?.content || "";
-      console.log('Image API Response:', data);
-      
+     
       // Use the same parsing logic as the text function
       return parseApiResponse(content);
     } catch (err) {
@@ -2788,7 +2787,7 @@ async function Newsdata() {
       let res = await fetch(api);
       let data = await res.json();
       
-      console.log('[News] API raw data:', data);
+     
       
       // Check if data has the expected structure
       if (data && Array.isArray(data) && data.length > 0) {
