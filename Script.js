@@ -2480,7 +2480,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   async function fetchOpenRouterEstimate(query) {
-    const apiKey =  "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"||
+    const apiKey =  ""||
       localStorage.getItem("OPENROUTER_API_KEY");
     if (!apiKey) return null;
   
@@ -2575,7 +2575,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchOpenRouterEstimateFromImage(imageUrl) {
     const apiKey =
-      "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" ||
+      "" ||
       localStorage.getItem("OPENROUTER_API_KEY");
     if (!apiKey) return null;
   
