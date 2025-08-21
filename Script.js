@@ -2478,14 +2478,6 @@ document.addEventListener('DOMContentLoaded', () => {
  
 
 
-  async function getKey() {
-    const res = await fetch("https://your-worker.workers.dev?token=mySuperSecret123");
-    const data = await res.json();
-    console.log("API Key:", data.apiKey);
-  let key = data.apiKey
-  }
-  getKey();
-  
 
   async function fetchOpenRouterEstimate(query) {
     const apiKey =  key ||
